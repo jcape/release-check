@@ -17,7 +17,9 @@ rust-version = "1.68"
 lto = "thin"
 
 [package.metadata.release]
-allow-branch = "main"
+allow-branch = [
+    "main"
+]
 consolidate-commits = true
 # TODO: when workspace only
 # dependent-versions = "fix"
