@@ -18,7 +18,6 @@ lto = "thin"
 
 [package.metadata.release]
 shared-version = true
-dev-version-ext = "beta.0"
 consolidate-commits = true
 consolidate-pushes = true
 tag-name = "v{{version}}"
