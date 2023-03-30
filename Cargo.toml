@@ -1,0 +1,33 @@
+[package]
+name = "mc-from-random"
+version = "0.0.0"
+authors = ["MobileCoin"]
+# See https://crates.io/category_slugs for valid categories
+categories = ["cryptography", "no-std"]
+description = "A trait for constructing an object from an CSPRNG"
+edition = "2021"
+# See https://crates.io/keywords for the common keywords
+keywords = ["random", "rng", "cryptography"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mobilecoinfoundation/from-random"
+rust-version = "1.68"
+
+[profile.release]
+lto = "thin"
+
+[package.metadata.release]
+shared-version = true
+dev-version-ext = "beta.0"
+consolidate-commits = true
+consolidate-pushes = true
+tag-name = "v{{version}}"
+pre-release-replacements = [
+    { file = "README.md", search = "mc-[a-z-]+/[0-9.]+", replace = "{{crate_name}}/{{version}}"},
+]
+
+[dependencies]
+rand_core = { version = "0.6", default_features = false }
+
+[dev-dependencies]
+rand_chacha = "0.3.1"

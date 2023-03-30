@@ -1,0 +1,41 @@
+---
+
+"on":
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to increment
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - beta
+
+env:
+  CARGO_INCREMENTAL: 0
+
+jobs:
+  make-release-pr:
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chainguard-dev/actions/setup-gitsign@main
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: r7kamura/rust-problem-matchers@v1
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-semver-checks,cargo-release
+      - uses: cargo-bins/release-pr@v2
+        with:
+          # yamllint disable rule:line-length
+          pr-title: "chore(release): <%= crates.length === 1 ? crates[0].name : '' %> v<%= version.actual %>"
+          # yamllint enable rule:line-length
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ inputs.version }}
+          crate-release-all: true
+          check-semver: true
