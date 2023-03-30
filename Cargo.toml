@@ -17,17 +17,20 @@ rust-version = "1.68"
 lto = "thin"
 
 [package.metadata.release]
+allow-branch = "main"
 consolidate-commits = true
-# Fill in with repo admins
+# TODO: when workspace only
+# dependent-versions = "fix"
+# TODO: Fill in with repo admins
 owners = [
     "jcape",
     "mobilecoinfoundation/crates-io",
 ]
 pre-release-replacements = [
-    { file = "README.md", search = "mc-[a-z-]+/[0-9.]+", replace = "{{crate_name}}/{{version}}"},
+
 ]
-# Elide when workspace
-shared-version = true
+# TODO: Only when workspace
+# shared-version = true
 sign-commit = true
 sign-tag = true
 tag-name = "v{{version}}"
