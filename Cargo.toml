@@ -17,13 +17,20 @@ rust-version = "1.68"
 lto = "thin"
 
 [package.metadata.release]
-shared-version = true
 consolidate-commits = true
-consolidate-pushes = true
-tag-name = "v{{version}}"
+# Fill in with repo admins
+owners = [
+    "jcape",
+    "mobilecoinfoundation/crates-io",
+]
 pre-release-replacements = [
     { file = "README.md", search = "mc-[a-z-]+/[0-9.]+", replace = "{{crate_name}}/{{version}}"},
 ]
+# Elide when workspace
+shared-version = true
+sign-commit = true
+sign-tag = true
+tag-name = "v{{version}}"
 
 [dependencies]
 rand_core = { version = "0.6", default_features = false }
