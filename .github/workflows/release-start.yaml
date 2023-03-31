@@ -52,11 +52,8 @@ jobs:
       - uses: cargo-bins/release-pr@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          crate-release-all: true
           # yamllint disable rule:line-length
           pr-title: "chore(release): <%= crates.length === 1 ? crates[0].name : '' %> v<%= version.actual %>"
           # yamllint enable rule:line-length
           version: ${{ steps.version.outputs.VERSION }}
-          # TODO: when single-crate
-          crate-name: "mc-from-random"
-          # TODO: when workspace
-          #crate-release-all: true
