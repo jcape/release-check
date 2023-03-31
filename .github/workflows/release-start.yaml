@@ -20,8 +20,9 @@ env:
 jobs:
   make-release-pr:
     permissions:
-      pull-requests: write
       contents: write
+      id-token: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
