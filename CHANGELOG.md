@@ -8,5 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.1.0] - 2023-03-31
+
 <!-- next-url -->
-[Unreleased]: https://github.com/mobilecoinfoundation/from-random/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/clap-rs/clap/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/mobilecoinfoundation/from-random/compare/v0.0.0...v0.1.0
