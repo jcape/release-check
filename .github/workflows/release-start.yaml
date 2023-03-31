@@ -56,4 +56,3 @@ jobs:
           # yamllint enable rule:line-length
           github-token: ${{ secrets.GITHUB_TOKEN }}
           version: ${{ steps.version.outputs.VERSION }}
-          crate-release-all: true
