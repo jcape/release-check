@@ -22,7 +22,7 @@ allow-branch = [
 ]
 consolidate-commits = true
 # TODO: when single-crate
-crate-name = mc-from-random
+crate-name = "mc-from-random"
 # TODO: when workspace
 #crate-release-all = true
 # TODO: when workspace only
