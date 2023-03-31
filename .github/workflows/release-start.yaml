@@ -35,19 +35,19 @@ jobs:
       - name: Checking what version to bump
         id: version
         run: |-
-          set +e
-          cargo semver-checks check-release --workspace
-          RESULT=$?
-          set -e
+          if [ "${{ inputs.version }}" = "(auto)" ]; then
+            set +e
+            cargo semver-checks check-release --workspace
+            RESULT=$?
+            set -e
 
-          if [ $RESULT -eq 0 ]; then
-            if [ "${{ inputs.version }}" = "(auto)" ]; then
+            if [ $RESULT -eq 0 ]; then
               echo "VERSION=patch" >> $GITHUB_OUTPUT
             else
-              echo "VERSION=${{ inputs.version }}" >> $GITHUB_OUTPUT
+              echo "VERSION=major" >> $GITHUB_OUTPUT
             fi
           else
-            echo "VERSION=major" >> $GITHUB_OUTPUT
+            echo "VERSION=${{ inputs.version }}" >> $GITHUB_OUTPUT
           fi
       - uses: cargo-bins/release-pr@v2
         with:
