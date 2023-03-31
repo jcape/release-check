@@ -1,6 +1,6 @@
 [package]
 name = "mc-from-random"
-version = "0.0.0"
+version = "1.0.0"
 authors = ["MobileCoin"]
 # See https://crates.io/category_slugs for valid categories
 categories = ["cryptography", "no-std"]
