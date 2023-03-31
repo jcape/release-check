@@ -6,13 +6,13 @@ name: "Start Release"
       version:
         description: Version to increment
         required: true
-        default: 'patch'
+        default: '(auto)'
         type: choice
         options:
+          - '(auto)'
           - patch
           - minor
           - major
-          - beta
 
 env:
   CARGO_INCREMENTAL: 0
@@ -32,12 +32,28 @@ jobs:
       - uses: taiki-e/install-action@v2
         with:
           tool: cargo-semver-checks,cargo-release
+      - name: Checking what version to bump
+        id: version
+        run: |-
+          set +e
+          cargo semver-checks check-release --workspace
+          RESULT=$?
+          set -e
+
+          if [ $RESULT -eq 0 ]; then
+            if [ "${{ inputs.version }}" = "(auto)" ]; then
+              echo "VERSION=patch" >> $GITHUB_OUTPUT
+            else
+              echo "VERSION=${{ inputs.version }}" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "VERSION=major" >> $GITHUB_OUTPUT
+          fi
       - uses: cargo-bins/release-pr@v2
         with:
           # yamllint disable rule:line-length
           pr-title: "chore(release): <%= crates.length === 1 ? crates[0].name : '' %> v<%= version.actual %>"
           # yamllint enable rule:line-length
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          version: ${{ inputs.version }}
+          version: ${{ version.outputs.VERSION }}
           crate-release-all: true
-          check-semver: true
