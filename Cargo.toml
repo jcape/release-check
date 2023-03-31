@@ -21,8 +21,12 @@ allow-branch = [
     "main"
 ]
 consolidate-commits = true
+# TODO: when single-crate
+crate-name = mc-from-random
+# TODO: when workspace
+#crate-release-all = true
 # TODO: when workspace only
-# dependent-versions = "fix"
+#dependent-versions = "fix"
 # TODO: Fill in with repo admins
 owners = [
     "jcape",
