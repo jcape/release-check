@@ -21,9 +21,8 @@ allow-branch = [
     "main"
 ]
 consolidate-commits = true
-# TODO: when workspace only
-#dependent-versions = "fix"
-# TODO: Fill in with repo admins
+dependent-versions = "fix"
+# TODO: fill with owners
 owners = [
     "jcape",
     "mobilecoinfoundation/crates-io",
@@ -36,8 +35,7 @@ pre-release-replacements = [
     { file = "CHANGELOG.md", search = "<!-- next-header -->", replace = "<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly = 1 },
     { file = "CHANGELOG.md", search = "<!-- next-url -->", replace = "<!-- next-url -->\n[Unreleased]: https://github.com/clap-rs/clap/compare/{{tag_name}}...HEAD", exactly = 1 },
 ]
-# TODO: Only when workspace
-# shared-version = true
+shared-version = true
 sign-commit = true
 sign-tag = true
 tag-name = "v{{version}}"
