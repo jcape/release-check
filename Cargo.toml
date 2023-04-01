@@ -1,7 +1,7 @@
 [package]
-name = "mc-from-random"
+name = "jcape-release-check"
 version = "0.0.0"
-authors = ["MobileCoin"]
+authors = ["James Cape"]
 # See https://crates.io/category_slugs for valid categories
 categories = ["cryptography", "no-std"]
 description = "A trait for constructing an object from an CSPRNG"
@@ -10,7 +10,7 @@ edition = "2021"
 keywords = ["random", "rng", "cryptography"]
 license = "Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/mobilecoinfoundation/from-random"
+repository = "https://github.com/jcape/release-check"
 rust-version = "1.68"
 
 [profile.release]
@@ -25,7 +25,6 @@ dependent-versions = "fix"
 # TODO: fill with owners
 owners = [
     "jcape",
-    "mobilecoinfoundation/crates-io",
 ]
 pre-release-replacements = [
     { file = "README.md", search = "mc[a-z-]+/[0-9.]+", replace = "{{crate_name}}/{{version}}" },

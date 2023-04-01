@@ -1,4 +1,4 @@
-# MobileCoin: A trait for constructing an object from an CSPRNG
+# jcape-release-check: A trait for constructing an object from an CSPRNG
 
 [![Project Chat][chat-image]][chat-link]<!--
 -->![License][license-image]<!--
@@ -15,7 +15,7 @@ A trait for constructing an object from an CSPRNG.
 ## Example
 
 ```rust
-use mc_from_random::{CryptoRng, FromRandom, RngCore};
+use jcape_release_check::{CryptoRng, FromRandom, RngCore};
 use rand_chacha::{ChaChaRng, rand_core::SeedableRng};
 
 struct MyStruct {
@@ -43,17 +43,17 @@ assert_eq!(expected, myobj.bytes);
 
 [chat-image]: https://img.shields.io/discord/844353360348971068?style=flat-square
 [chat-link]: https://discord.gg/mobilecoin
-[license-image]: https://img.shields.io/crates/l/mc-from-random?style=flat-square
+[license-image]: https://img.shields.io/crates/l/jcape-test?style=flat-square
 [arch-image]: https://img.shields.io/badge/arch-any-brightgreen?style=flat-square
-[crate-image]: https://img.shields.io/crates/v/mc-from-random.svg?style=flat-square
-[crate-link]: https://crates.io/crates/mc-from-random
-[docs-image]: https://img.shields.io/docsrs/mc-from-random?style=flat-square
-[docs-link]: https://docs.rs/crate/mc-from-random
-[deps-image]: https://deps.rs/crate/mc-from-random/0.0.0/status.svg?style=flat-square
-[deps-link]: https://deps.rs/crate/mc-from-random/0.0.0
-[codecov-image]: https://img.shields.io/codecov/c/github/mobilecoinfoundation/from-random/main?style=flat-square
-[codecov-link]: https://codecov.io/gh/mobilecoinfoundation/from-random
-[gha-image]: https://img.shields.io/github/actions/workflow/status/mobilecoinfoundation/from-random/ci.yaml?branch=main&style=flat-square
-[gha-link]: https://github.com/mobilecoinfoundation/from-random/actions/workflows/ci.yaml?query=branch%3Amain
+[crate-image]: https://img.shields.io/crates/v/jcape-test.svg?style=flat-square
+[crate-link]: https://crates.io/crates/jcape-test
+[docs-image]: https://img.shields.io/docsrs/jcape-test?style=flat-square
+[docs-link]: https://docs.rs/crate/jcape-test
+[deps-image]: https://deps.rs/crate/jcape-test/0.0.0/status.svg?style=flat-square
+[deps-link]: https://deps.rs/crate/jcape-test/0.0.0
+[codecov-image]: https://img.shields.io/codecov/c/github/jcape/release-check/main?style=flat-square
+[codecov-link]: https://codecov.io/gh/jcape/release-check
+[gha-image]: https://img.shields.io/github/actions/workflow/status/jcape/release-check/ci.yaml?branch=main&style=flat-square
+[gha-link]: https://github.com/jcape/release-check/actions/workflows/ci.yaml?query=branch%3Amain
 [conduct-link]: CODE_OF_CONDUCT.md
 [conduct-image]: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=flat-square
